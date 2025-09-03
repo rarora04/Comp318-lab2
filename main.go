@@ -8,10 +8,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/rarora04//Comp318-lab2/base"
-	"github.com/rarora04//Comp318-ab2/frequency"
-        //"github.com/comp318/tutorials/base"  // fix to properly reference your package
-        //"github.com/comp318/tutorials/frequency"  // fix to properly reference your package
+	"github.com/rarora04/Comp318-lab2/base"
+	"github.com/rarora04/Comp318-lab2/frequency"
+	//"github.com/comp318/tutorials/base"  // fix to properly reference your package
+	//"github.com/comp318/tutorials/frequency"  // fix to properly reference your package
 )
 
 type Completer interface {
@@ -55,13 +55,13 @@ func main() {
 		count, err := strconv.Atoi(fields[1])
 		if err != nil {
 			fmt.Printf("Invalid count: %s\n", fields[1])
-                        return
+			return
 		}
 
 		_, ok := dict[word]
 		if ok {
 			fmt.Printf("Duplicate word: %s\n", word)
-                        return
+			return
 		}
 
 		dict[word] = count
@@ -70,7 +70,7 @@ func main() {
 	err = scanner.Err()
 	if err != nil {
 		fmt.Printf("Unable to read file %s: %v\n", *dictFlag, err)
-                return
+		return
 	}
 
 	// Instantiate correct Completer
@@ -82,7 +82,7 @@ func main() {
 		completer = frequency.New(dict)
 	} else {
 		fmt.Printf("Invalid completer type: %s\n", *compFlag)
-                return
+		return
 	}
 
 	// Read input from user and provide completions.
